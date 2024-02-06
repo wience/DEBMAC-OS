@@ -1,5 +1,13 @@
+int 0x10
 
+loop:
+    inc al
+    cmp al, 'Z' + 1
+    je exit
+    int 0x10
+    jmp loop
 
-jmp $
+exit:
+    jmp $
 times 500-($-$$) db 0
 db 0x55, 0xaa
