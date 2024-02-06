@@ -1,13 +1,15 @@
-mov bx, 4
-cmp bx, 5
-je label
-jmp $
+mov al, 'A'
+int 0x10
+jmp loop
 
-label:
-    move ah, 0x0e
-    move al, 'X'
+loop:
+    inc al
+    cmp al, 'Z' + 1
+    je exit
     int 0x10
-jmp $
+    jmp loop
+exit:
+    jmp $
 
 times 510-($-$$) db 0
 db 0x55, 0xaa
