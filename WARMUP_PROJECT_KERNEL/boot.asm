@@ -1,6 +1,7 @@
 int 0x10
 
 loop:
+    print al
     inc al
     cmp al, 'Z' + 1
     je exit
@@ -9,5 +10,5 @@ loop:
 
 exit:
     jmp $
-times 500-($-$$) db 0
+times 510-($-$$) db 0
 db 0x55, 0xaa
